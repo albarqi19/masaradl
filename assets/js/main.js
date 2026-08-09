@@ -77,3 +77,19 @@ if (form) {
     window.location.href = `mailto:info@masaradl.sa?subject=${encodeURIComponent(subject || 'استفسار من الموقع')}&body=${body}`;
   });
 }
+
+// فيديو البطل ٨٫٤MB — كان autoplay يحمّله كاملاً على كل زائر، ومنهم زائرُ
+// الجوال على بياناتٍ خلوية. لا يُحمَّل إلا على شاشةٍ عريضة وبلا «توفير البيانات»؛
+// وصورةُ الـposter تحلّ محلَّه في الحالتين فلا يتغيّر شكلُ البطل.
+const heroVideo = document.querySelector('.hero-video[data-video]');
+if (heroVideo) {
+  const conn = navigator.connection || {};
+  const light = conn.saveData || /2g/.test(conn.effectiveType || '');
+  if (window.innerWidth >= 900 && !light) {
+    const src = document.createElement('source');
+    src.src = heroVideo.dataset.video;
+    src.type = 'video/mp4';
+    heroVideo.appendChild(src);
+    heroVideo.load();
+  }
+}
