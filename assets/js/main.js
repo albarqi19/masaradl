@@ -63,21 +63,6 @@ document.querySelectorAll('.faq-tabs').forEach(tabs => {
   }));
 });
 
-// نموذج تسجيل الدخول — النظام غير مربوط بعد، يظهر تنبيهاً
-const loginForm = document.getElementById('login-form');
-if (loginForm) {
-  loginForm.addEventListener('submit', ev => {
-    ev.preventDefault();
-    const nid = loginForm.nid.value.trim();
-    const notice = document.getElementById('login-notice');
-    if (!/^[0-9]{10}$/.test(nid)) {
-      notice.textContent = 'يرجى إدخال رقم هوية صحيح مكوّن من 10 أرقام.';
-    } else {
-      notice.textContent = 'النظام قيد التجهيز حالياً — للاستفسار يرجى التواصل معنا عبر قنواتنا الرسمية.';
-    }
-    notice.classList.add('show');
-  });
-}
 
 // نموذج التواصل — يفتح بريد العميل مع تعبئة الرسالة
 const form = document.getElementById('contact-form');
