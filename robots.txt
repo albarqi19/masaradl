@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# صفحاتُ الدخول لا تُفهرس
+Disallow: /login
+Disallow: /login.html
+Disallow: /en/login
+Disallow: /en/login.html
+
+Sitemap: https://www.masaradl.sa/sitemap.xml
